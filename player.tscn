@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c3gw6omwqgc2i"]
+
+[ext_resource type="Script" uid="uid://d0djnspm0fj5b" path="res://scripts/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cox7moer0bi3w" path="res://sprites/sprite_idle-Sheet-Sheet.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://dmrrwodv8ubqt" path="res://sprites/sprite_walk-Sheet.png" id="3_hqtel"]
+
+[sub_resource type="Curve" id="Curve_i3pqv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.60162604, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.25403225), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 80
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("2_i3pqv")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("3_hqtel")
+region = Rect2(0, 0, 108, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("3_hqtel")
+region = Rect2(108, 0, 108, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okmhf"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okmhf"]
+size = Vector2(112, 112)
+
+[node name="Player" type="CharacterBody2D" unique_id=844204041]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_i3pqv")
+dash_speed_curve = SubResource("Curve_i3pqv")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1231809985]
+sprite_frames = SubResource("SpriteFrames_okmhf")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.47930163
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812758183]
+shape = SubResource("RectangleShape2D_okmhf")

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dvy4l0e6q4n3u"]
+
+[ext_resource type="Script" uid="uid://dgpthuj0wupef" path="res://scripts/main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://oo7v6slx1fia" path="res://level_scenes/level1.tscn" id="3_h2yge"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okmhf"]
+bg_color = Color(0.8263198, 0.49986815, 0.4374329, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[node name="Main" type="Node2D" unique_id=1211748853]
+script = ExtResource("1_0xm2m")
+
+[node name="LevelRoot" parent="." unique_id=2043730505 instance=ExtResource("3_h2yge")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1880537882]
+
+[node name="Panel" type="Panel" parent="HUD" unique_id=1780967929]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 60.0
+offset_right = 150.0
+offset_bottom = 141.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_okmhf")
+
+[node name="LevelLabel" type="Label" parent="HUD/Panel" unique_id=2023047826]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_right = 68.5
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "LEVEL: 0"
+
+[node name="ScoreLabel" type="Label" parent="HUD/Panel" unique_id=2031287239]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.5
+offset_top = -45.0
+offset_right = 64.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "SCORE: 0"
