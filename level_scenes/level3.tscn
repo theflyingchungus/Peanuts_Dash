@@ -154,16 +154,16 @@ position = Vector2(36.333332, 107)
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=1481790235]
 position = Vector2(601.6666, 327.66666)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1557879000]
+[node name="Peanuts" type="Node2D" parent="." unique_id=1557879000]
 
-[node name="Peanut" parent="Node2D" unique_id=1316320266 instance=ExtResource("5_ommje")]
+[node name="Peanut" parent="Peanuts" unique_id=1316320266 instance=ExtResource("5_ommje")]
 position = Vector2(267, 164.66667)
 peanut_id = "l03_p01"
 
-[node name="Peanut2" parent="Node2D" unique_id=1837911633 instance=ExtResource("5_ommje")]
+[node name="Peanut2" parent="Peanuts" unique_id=1837911633 instance=ExtResource("5_ommje")]
 position = Vector2(45.333313, 308)
 peanut_id = "l03_p02"
 
-[node name="Peanut3" parent="Node2D" unique_id=1883464414 instance=ExtResource("5_ommje")]
+[node name="Peanut3" parent="Peanuts" unique_id=1883464414 instance=ExtResource("5_ommje")]
 position = Vector2(588.00006, 223)
 peanut_id = "l03_p03"

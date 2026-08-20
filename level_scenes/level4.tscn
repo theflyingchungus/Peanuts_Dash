@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dteferd3opyay" path="res://sprites/Sprite-bg-tile1.png" id="2_ipvkg"]
 [ext_resource type="Texture2D" uid="uid://ip1v8bqio4b7" path="res://sprites/Sprite-grass-tile.png" id="3_03af3"]
 [ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://object_scenes/player.tscn" id="4_4lesv"]
-[ext_resource type="PackedScene" uid="uid://cpw668gfhlnok" path="res://object_scenes/moving_platform_h.tscn" id="5_ipvkg"]
+[ext_resource type="PackedScene" uid="uid://cpw668gfhlnok" path="res://object_scenes/moving_platform_right.tscn" id="5_ipvkg"]
 [ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="6_03af3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
@@ -152,22 +152,22 @@ position = Vector2(613, 325.66666)
 
 [node name="MovingPlatforms" type="Node2D" parent="." unique_id=221895186]
 
-[node name="MovingPlatform" parent="MovingPlatforms" unique_id=1694271473 instance=ExtResource("5_ipvkg")]
+[node name="MovingPlatformRight" parent="MovingPlatforms" unique_id=1694271473 instance=ExtResource("5_ipvkg")]
 position = Vector2(250, 350)
 
-[node name="MovingPlatform2" parent="MovingPlatforms" unique_id=529256675 instance=ExtResource("5_ipvkg")]
+[node name="MovingPlatformRight2" parent="MovingPlatforms" unique_id=529256675 instance=ExtResource("5_ipvkg")]
 position = Vector2(400, 350)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1560413900]
+[node name="Peanuts" type="Node2D" parent="." unique_id=1560413900]
 
-[node name="Peanut" parent="Node2D" unique_id=1316320266 instance=ExtResource("6_03af3")]
+[node name="Peanut" parent="Peanuts" unique_id=1316320266 instance=ExtResource("6_03af3")]
 position = Vector2(232.66666, 315)
 peanut_id = "l04_p01"
 
-[node name="Peanut2" parent="Node2D" unique_id=359171218 instance=ExtResource("6_03af3")]
+[node name="Peanut2" parent="Peanuts" unique_id=359171218 instance=ExtResource("6_03af3")]
 position = Vector2(392, 316.00003)
 peanut_id = "l04_p02"
 
-[node name="Peanut3" parent="Node2D" unique_id=817896385 instance=ExtResource("6_03af3")]
+[node name="Peanut3" parent="Peanuts" unique_id=817896385 instance=ExtResource("6_03af3")]
 position = Vector2(588.00006, 223)
 peanut_id = "l04_p03"
