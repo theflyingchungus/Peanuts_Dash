@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bi2tboiu4i7e8" path="res://sprites/Sprite-peanut-Sheet.png" id="1_qh6pl"]
 [ext_resource type="Script" uid="uid://cm6bnqwv4r72p" path="res://scripts/peanut.gd" id="1_vtj2m"]
 [ext_resource type="Texture2D" uid="uid://bvkilue6vs8v5" path="res://sprites/Sprite-peanut-collected-Sheet.png" id="2_ip4ko"]
+[ext_resource type="AudioStream" uid="uid://b4s2fubsfasrp" path="res://sounds/collect-chime.mp3" id="4_ip4ko"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53brj"]
 atlas = ExtResource("2_ip4ko")
@@ -125,6 +126,11 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=226824200]
 shape = SubResource("CapsuleShape2D_17rvj")
+
+[node name="Collect" type="AudioStreamPlayer2D" parent="." unique_id=235426279]
+stream = ExtResource("4_ip4ko")
+volume_db = 1.0
+pitch_scale = 1.3
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]

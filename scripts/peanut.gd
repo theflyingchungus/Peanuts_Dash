@@ -2,6 +2,7 @@ extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @export var peanut_id: String = ""  # set a unique value per peanut in the Inspector
+@onready var collect_sound: AudioStreamPlayer2D = $Collect
 
 signal collected
 
@@ -21,6 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 		call_deferred("_disable_collision")
 		CollectibleState.mark_collected(peanut_id)
 		ScoreManager.add_point()
+		collect_sound.play()
 
 func _disable_collision() -> void:
 	collision_shape_2d.disabled = true

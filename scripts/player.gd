@@ -1,5 +1,7 @@
 extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var jump_sound: AudioStreamPlayer2D = $Jump
+@onready var dash_sound: AudioStreamPlayer2D = $Dash
 
 
 const SPEED = 400.0
@@ -66,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_sound.play()
 	
 	# Add walking animation.
 	if velocity.x > 1 or velocity.x < -1:
@@ -121,6 +124,8 @@ func start_dash():
 		dash_direction = input_dir.normalized()
 	else:
 		dash_direction = Vector2(dash_direction.x, 0)  # horizontal-only fallback
+	
+	dash_sound.play()
 
 func _process_dash(delta):
 	dash_timer += delta
