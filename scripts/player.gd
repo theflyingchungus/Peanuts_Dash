@@ -81,9 +81,11 @@ func _physics_process(delta: float) -> void:
 	elif not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	# Add walking animation.
-	if velocity.x > 1 or velocity.x < -1:
+	# Add animations.
+	if (velocity.x > 1 or velocity.x < -1) and is_on_floor():	# Walking animation
 		animated_sprite_2d.animation = "walk"
+	elif (velocity.y > 1 or velocity.y < 1) and not is_on_floor():	# Airborne animation
+		animated_sprite_2d.animation = "jump"
 	else:
 		animated_sprite_2d.animation = "idle"
 

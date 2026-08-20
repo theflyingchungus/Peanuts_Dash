@@ -1,14 +1,13 @@
-[gd_scene format=4 uid="uid://e3nekl00c6in"]
+[gd_scene format=4 uid="uid://bx8l5gqksvcud"]
 
-[ext_resource type="Script" uid="uid://dojlaxoq50m08" path="res://scripts/level_2.gd" id="1_kftuv"]
-[ext_resource type="Texture2D" uid="uid://dteferd3opyay" path="res://sprites/Sprite-bg-tile1.png" id="2_ipvkg"]
-[ext_resource type="Texture2D" uid="uid://ip1v8bqio4b7" path="res://sprites/Sprite-grass-tile.png" id="3_03af3"]
-[ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://object_scenes/player.tscn" id="4_4lesv"]
-[ext_resource type="PackedScene" uid="uid://cpw668gfhlnok" path="res://object_scenes/moving_platform_h.tscn" id="5_ipvkg"]
-[ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="6_03af3"]
+[ext_resource type="Script" uid="uid://dojlaxoq50m08" path="res://scripts/level_2.gd" id="1_7iry3"]
+[ext_resource type="Texture2D" uid="uid://dteferd3opyay" path="res://sprites/Sprite-bg-tile1.png" id="2_h4hlg"]
+[ext_resource type="Texture2D" uid="uid://ip1v8bqio4b7" path="res://sprites/Sprite-grass-tile.png" id="3_gqr4b"]
+[ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://object_scenes/player.tscn" id="4_tap6l"]
+[ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="5_7iry3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
-texture = ExtResource("3_03af3")
+texture = ExtResource("3_gqr4b")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
@@ -102,23 +101,24 @@ size = Vector2(640, 20)
 [node name="LevelRoot" type="Node2D" unique_id=2043730505]
 texture_filter = 1
 scale = Vector2(3, 3)
-script = ExtResource("1_kftuv")
+script = ExtResource("1_7iry3")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1350678573]
 texture_filter = 1
-offset_right = 1280.0
+offset_left = 0.33333334
+offset_right = 1280.3334
 offset_bottom = 720.0
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_ipvkg")
+texture = ExtResource("2_h4hlg")
 stretch_mode = 1
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=587221193]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAAAAAIAAAADAAEAAAAAAAgAAAADAAEAAAAAAAkAAAADAAEAAAAAAAoAAAADAAEAAAAAAAsAAAADAAEAAAAAAAwAAAADAAEAAAAAAA0AAAADAAEAAAABABEAAAAKAAAAAAACABEAAAAKAAAAAAADABEAAAAKAAAAAAAEABEAAAAKAAAAAAAbABEAAAALAAAAAAAcABEAAAAKAAAAAAAdABEAAAALAAAAAAAeABEAAAAKAAAAAAAfAAEAAAAGAAEAAAAfAAIAAAAGAAEAAAAfAAgAAAAGAAEAAAAfAAkAAAAGAAEAAAAfAAoAAAAGAAEAAAAfAAsAAAAGAAEAAAAfAAwAAAAGAAEAAAAfAA0AAAAGAAEAAAABAAAAAAAKAAEAAAACAAAAAAALAAEAAAADAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAFAAAAAAAKAAEAAAAGAAAAAAALAAEAAAAHAAAAAAAKAAEAAAAIAAAAAAALAAEAAAAJAAAAAAAKAAEAAAAKAAAAAAALAAEAAAALAAAAAAAKAAEAAAAMAAAAAAALAAEAAAANAAAAAAAKAAEAAAAOAAAAAAALAAEAAAAPAAAAAAAKAAEAAAAQAAAAAAALAAEAAAARAAAAAAAKAAEAAAASAAAAAAALAAEAAAATAAAAAAAKAAEAAAAUAAAAAAALAAEAAAAVAAAAAAAKAAEAAAAWAAAAAAALAAEAAAAXAAAAAAAKAAEAAAAYAAAAAAALAAEAAAAZAAAAAAAKAAEAAAAaAAAAAAALAAEAAAAbAAAAAAAKAAEAAAAcAAAAAAALAAEAAAAdAAAAAAAKAAEAAAAeAAAAAAALAAEAAAAfAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAfABEAAAAKAAAAAAAfAAMAAAAGAAEAAAAfAAQAAAAGAAEAAAAfAAUAAAAGAAEAAAAfAAYAAAAGAAEAAAAfAAcAAAAGAAEAAAAfAA4AAAAGAAIAAAAAAA4AAAABAAEAAAAAABEAAAAHAAAAAAAAAAMAAAADAAEAAAAAAAQAAAADAAEAAAAAAAUAAAADAAEAAAAAAAYAAAADAAEAAAAAAAcAAAADAAEAAAAFABEAAAADAAAAAAAaABEAAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAAAAAIAAAADAAEAAAAAAAgAAAADAAEAAAAAAAkAAAADAAEAAAAAAAoAAAADAAEAAAAAAAsAAAADAAEAAAAAAAwAAAADAAEAAAAAAA0AAAADAAEAAAABABEAAAAKAAAAAAACABEAAAAKAAAAAAADABEAAAAKAAAAAAAEABEAAAAKAAAAAAAbABEAAAALAAAAAAAcABEAAAAKAAAAAAAdABEAAAALAAAAAAAeABEAAAAKAAAAAAAfAAEAAAAGAAEAAAAfAAIAAAAGAAEAAAAfAAgAAAAGAAEAAAAfAAkAAAAGAAEAAAAfAAoAAAAGAAEAAAAfAAsAAAAGAAEAAAAfAAwAAAAGAAEAAAAfAA0AAAAGAAEAAAABAAAAAAAKAAEAAAACAAAAAAALAAEAAAADAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAFAAAAAAAKAAEAAAAGAAAAAAALAAEAAAAHAAAAAAAKAAEAAAAIAAAAAAALAAEAAAAJAAAAAAAKAAEAAAAKAAAAAAALAAEAAAALAAAAAAAKAAEAAAAMAAAAAAALAAEAAAANAAAAAAAKAAEAAAAOAAAAAAALAAEAAAAPAAAAAAAKAAEAAAAQAAAAAAALAAEAAAARAAAAAAAKAAEAAAASAAAAAAALAAEAAAATAAAAAAAKAAEAAAAUAAAAAAALAAEAAAAVAAAAAAAKAAEAAAAWAAAAAAALAAEAAAAXAAAAAAAKAAEAAAAYAAAAAAALAAEAAAAZAAAAAAAKAAEAAAAaAAAAAAALAAEAAAAbAAAAAAAKAAEAAAAcAAAAAAALAAEAAAAdAAAAAAAKAAEAAAAeAAAAAAALAAEAAAAfAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAfABEAAAAKAAAAAAAfAAMAAAAGAAEAAAAfAAQAAAAGAAEAAAAfAAUAAAAGAAEAAAAfAAYAAAAGAAEAAAAfAAcAAAAGAAEAAAAfAA4AAAAGAAIAAAAAAA4AAAABAAEAAAAAABEAAAAHAAAAAAAAAAMAAAADAAEAAAAAAAQAAAADAAEAAAAAAAUAAAADAAEAAAAAAAYAAAADAAEAAAAAAAcAAAADAAEAAAAFABEAAAADAAAAAAAaABEAAAACAAAAAAAOABEAAAAJAAIAAAAPABEAAAAKAAIAAAAQABEAAAALAAIAAAARABEAAAAMAAIAAAA=")
 tile_set = SubResource("TileSet_17rvj")
 
-[node name="Player" parent="." unique_id=844204041 instance=ExtResource("4_4lesv")]
-position = Vector2(81.666664, 327.33334)
+[node name="Player" parent="." unique_id=844204041 instance=ExtResource("4_tap6l")]
+position = Vector2(86, 318)
 
 [node name="Exit" type="Area2D" parent="." unique_id=237510733]
 position = Vector2(645.6667, 310.00003)
@@ -150,24 +150,16 @@ position = Vector2(36.666668, 326.6667)
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=1481790235]
 position = Vector2(613, 325.66666)
 
-[node name="MovingPlatforms" type="Node2D" parent="." unique_id=221895186]
+[node name="Node2D" type="Node2D" parent="." unique_id=1281626779]
 
-[node name="MovingPlatform" parent="MovingPlatforms" unique_id=1694271473 instance=ExtResource("5_ipvkg")]
-position = Vector2(250, 350)
+[node name="Peanut" parent="Node2D" unique_id=1316320266 instance=ExtResource("5_7iry3")]
+position = Vector2(214.66667, 364.33334)
+peanut_id = "l05_p01"
 
-[node name="MovingPlatform2" parent="MovingPlatforms" unique_id=529256675 instance=ExtResource("5_ipvkg")]
-position = Vector2(400, 350)
+[node name="Peanut2" parent="Node2D" unique_id=564963014 instance=ExtResource("5_7iry3")]
+position = Vector2(460.3333, 364.00006)
+peanut_id = "l05_p02"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1560413900]
-
-[node name="Peanut" parent="Node2D" unique_id=1316320266 instance=ExtResource("6_03af3")]
-position = Vector2(232.66666, 315)
-peanut_id = "l04_p01"
-
-[node name="Peanut2" parent="Node2D" unique_id=359171218 instance=ExtResource("6_03af3")]
-position = Vector2(392, 316.00003)
-peanut_id = "l04_p02"
-
-[node name="Peanut3" parent="Node2D" unique_id=817896385 instance=ExtResource("6_03af3")]
-position = Vector2(588.00006, 223)
-peanut_id = "l04_p03"
+[node name="Peanut3" parent="Node2D" unique_id=1234650305 instance=ExtResource("5_7iry3")]
+position = Vector2(595.3333, 236.66664)
+peanut_id = "l05_p03"

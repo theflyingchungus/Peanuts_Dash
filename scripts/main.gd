@@ -2,8 +2,9 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 4
+var level: int = 3
 var current_level_root: Node = null
+var entry_spawn_point: String = "FromPreviousLevel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,18 +64,20 @@ func _on_exit_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		level += 1
 		body.lock_movement()
+		entry_spawn_point = "FromPreviousLevel"
+		GameState.set_spawn_point(entry_spawn_point)
 		call_deferred("_load_level", level)
-		GameState.set_spawn_point("FromPreviousLevel")
 
 func _on_entry_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		level -= 1
 		body.lock_movement()
+		entry_spawn_point = "FromNextLevel"
+		GameState.set_spawn_point(entry_spawn_point)
 		call_deferred("_load_level", level)
-		GameState.set_spawn_point("FromNextLevel")
 
 func _on_pit_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		body.lock_movement()
+		GameState.set_spawn_point(entry_spawn_point)
 		call_deferred("_load_level", level)
-		GameState.set_spawn_point("FromPreviousLevel")
