@@ -31,6 +31,7 @@ var jump_buffer_timer = 0.0
 # Dash gating
 var has_jumped = false
 var has_dashed = false
+var dash_started_on_ground = false
 
 # Post-dash tuning
 @export var end_dash_speed_multiplier = 0.75  # how much velocity carries into normal movement
@@ -76,8 +77,8 @@ func _physics_process(delta: float) -> void:
 
 	# --- Handle dash movement (overrides normal physics while active) ---
 	if is_dashing:
-		# Allow jump to cancel the dash early, keeping dash momentum
-		if Input.is_action_just_pressed("ui_accept") and has_jumped == false:
+		# Allow jump to cancel the dash early, keeping dash momentum — ground dashes only
+		if Input.is_action_just_pressed("ui_accept") and dash_started_on_ground:
 			_end_dash_with_jump()
 			jump_sound.play()
 		else:
@@ -118,7 +119,7 @@ func _physics_process(delta: float) -> void:
 		
 		# Dash input: allowed on ground (with cooldown) OR once per jump in the air
 		var can_ground_dash = is_on_floor() and dash_cooldown_timer <= 0
-		var can_air_dash = not is_on_floor() and has_jumped and not has_dashed
+		var can_air_dash = not is_on_floor() and not has_dashed
 		
 		# Handle dashing
 		if Input.is_action_just_pressed("dash") and (can_ground_dash or can_air_dash):
@@ -149,6 +150,7 @@ func start_dash():
 	dash_timer = 0.0
 	is_frozen = true
 	hitstop_timer = hitstop_frames
+	dash_started_on_ground = is_on_floor()	# record ground state at the moment dash begins
 	
 	var input_dir = Vector2(
 	Input.get_axis("ui_left", "ui_right"),
