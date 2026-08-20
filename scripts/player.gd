@@ -64,11 +64,6 @@ func _physics_process(delta: float) -> void:
 		# skip gravity entirely during float window
 	elif not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
 	
 	# Add walking animation.
 	if velocity.x > 1 or velocity.x < -1:
@@ -81,10 +76,20 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if not movement_locked:
+		# Handle walking
 		if direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		# Handle jumping
+		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+			jump_sound.play()
+		
+		# Handle dashing
+		if Input.is_action_just_pressed("dash") and not has_dashed:
+			start_dash()
 
 	else:
 		velocity.x = 0
@@ -92,9 +97,7 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		dash_direction.x = sign(direction)
 	
-	# Dash input
-	if Input.is_action_just_pressed("dash") and not has_dashed:
-		start_dash()
+
 	
 	move_and_slide()
 	

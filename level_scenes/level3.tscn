@@ -145,10 +145,10 @@ shape = SubResource("RectangleShape2D_17rvj")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=45668141]
 
 [node name="FromPreviousLevel" type="Marker2D" parent="SpawnPoints" unique_id=1556983734]
-position = Vector2(39, 98.333336)
+position = Vector2(36.333332, 107)
 
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=1481790235]
-position = Vector2(612.3333, 324)
+position = Vector2(601.6666, 327.66666)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1557879000]
 
