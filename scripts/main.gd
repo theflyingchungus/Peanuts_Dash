@@ -2,7 +2,7 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 1
+var level: int = 4
 var current_level_root: Node = null
 
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +43,10 @@ func _setup_level(level_root: Node) -> void:
 	var entry = level_root.get_node_or_null("Entry")
 	if entry:
 		entry.body_entered.connect(_on_entry_body_entered)
+		
+	var pit = level_root.get_node_or_null("Pit")
+	if pit:
+		pit.body_entered.connect(_on_pit_body_entered)
 	
 	level_label.text = "LEVEL: %s" % level
 	
@@ -68,3 +72,9 @@ func _on_entry_body_entered(body: Node2D) -> void:
 		body.lock_movement()
 		call_deferred("_load_level", level)
 		GameState.set_spawn_point("FromNextLevel")
+
+func _on_pit_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		body.lock_movement()
+		call_deferred("_load_level", level)
+		GameState.set_spawn_point("FromPreviousLevel")

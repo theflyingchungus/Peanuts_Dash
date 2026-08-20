@@ -74,17 +74,6 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# --- Handle dash movement (overrides normal physics while active) ---
-	if is_dashing:
-		# Allow jump to cancel the dash early, keeping dash momentum — ground dashes only
-		if Input.is_action_just_pressed("ui_accept") and dash_started_on_ground:
-			_end_dash_with_jump()
-			jump_sound.play()
-		else:
-			_process_dash(delta)
-		move_and_slide()
-		return # skip normal movement/gravity this frame
 	
 	if post_dash_float_timer > 0:
 		post_dash_float_timer -= delta
@@ -124,9 +113,21 @@ func _physics_process(delta: float) -> void:
 		# Handle dashing
 		if Input.is_action_just_pressed("dash") and (can_ground_dash or can_air_dash):
 			start_dash()
+		
+		# Handle dash-jumping
+		if is_dashing:
+			# Allow jump to cancel the dash early, keeping dash momentum — ground dashes only
+			if Input.is_action_just_pressed("ui_accept") and dash_started_on_ground:
+				_end_dash_with_jump()
+				jump_sound.play()
+			else:
+				_process_dash(delta)
+			move_and_slide()
+			return # skip normal movement/gravity this frame
 
 	else:
 		velocity.x = 0
+		velocity.y = 0
 	
 	if direction != 0:
 		dash_direction.x = sign(direction)

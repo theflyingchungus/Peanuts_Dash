@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dteferd3opyay" path="res://sprites/Sprite-bg-tile1.png" id="1_b3oru"]
 [ext_resource type="Script" uid="uid://cnvyh3ynvl4tw" path="res://scripts/level_1.gd" id="1_ua5ty"]
 [ext_resource type="Texture2D" uid="uid://ip1v8bqio4b7" path="res://sprites/Sprite-grass-tile.png" id="2_b3oru"]
-[ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://player.tscn" id="2_pdtm5"]
-[ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://peanut.tscn" id="5_61w3m"]
+[ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://object_scenes/player.tscn" id="2_pdtm5"]
+[ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="5_61w3m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
 texture = ExtResource("2_b3oru")
