@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*uid://dgthganfhamft"
 CollectibleState="*uid://cu0f6hck57n4q"
+ScoreManager="*uid://dybwqdm5fmgf0"
 
 [display]
 

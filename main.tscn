@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dvy4l0e6q4n3u"]
 
 [ext_resource type="Script" uid="uid://dgpthuj0wupef" path="res://scripts/main.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://ci7kqyywincmr" path="res://score_label.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://oo7v6slx1fia" path="res://level_scenes/level1.tscn" id="3_h2yge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okmhf"]
@@ -59,3 +60,4 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "SCORE: 0"
+script = ExtResource("3_1bvp3")

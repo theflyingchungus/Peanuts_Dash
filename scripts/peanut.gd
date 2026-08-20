@@ -20,6 +20,7 @@ func _on_body_entered(body: Node2D) -> void:
 		collected.emit()
 		call_deferred("_disable_collision")
 		CollectibleState.mark_collected(peanut_id)
+		ScoreManager.add_point()
 
 func _disable_collision() -> void:
 	collision_shape_2d.disabled = true

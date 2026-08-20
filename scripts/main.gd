@@ -1,11 +1,8 @@
 extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
-@onready var score_label: Label = $HUD/Panel/ScoreLabel
 
 var level: int = 1
 var current_level_root: Node = null
-
-var score: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,10 +28,6 @@ func _load_level(level_number: int) -> void:
 func _setup_level(level_root: Node) -> void:
 	# Connect Peanuts
 	var peanuts = level_root.get_node_or_null("Peanuts")
-
-	if peanuts:
-		for peanut in peanuts.get_children():
-			peanut.collected.connect(increase_score)
 	
 	# Connect Exit
 	var exit = level_root.get_node_or_null("Exit")
@@ -51,10 +44,6 @@ func _setup_level(level_root: Node) -> void:
 # ----------------------
 # SIGNAL HANDLERS
 # ----------------------
-
-func increase_score() -> void:
-	score += 1
-	score_label.text = "SCORE: %s" % score
 
 func _on_exit_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
