@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvy4l0e6q4n3u"]
 
 [ext_resource type="Script" uid="uid://dgpthuj0wupef" path="res://scripts/main.gd" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://ci7kqyywincmr" path="res://score_label.gd" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://ci7kqyywincmr" path="res://scripts/score_label.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://oo7v6slx1fia" path="res://level_scenes/level1.tscn" id="3_h2yge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okmhf"]
@@ -27,10 +27,10 @@ script = ExtResource("1_0xm2m")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -150.0
-offset_top = 60.0
-offset_right = 150.0
-offset_bottom = 141.0
+offset_left = -96.5
+offset_top = 61.0
+offset_right = 96.5
+offset_bottom = 142.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_okmhf")
 
@@ -53,9 +53,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -72.5
+offset_left = -68.5
 offset_top = -45.0
-offset_right = 64.5
+offset_right = 68.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
