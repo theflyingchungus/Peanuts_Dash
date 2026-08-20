@@ -149,8 +149,9 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_okmhf"]
-size = Vector2(88, 124)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxx0w"]
+radius = 36.0
+height = 132.0
 
 [node name="Player" type="CharacterBody2D" unique_id=844204041]
 texture_filter = 1
@@ -167,13 +168,13 @@ frame = 5
 frame_progress = 0.9191066
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812758183]
-position = Vector2(-4, 6)
-shape = SubResource("RectangleShape2D_okmhf")
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_sxx0w")
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="." unique_id=1670563232]
 stream = ExtResource("4_v388v")
 
 [node name="Dash" type="AudioStreamPlayer2D" parent="." unique_id=1942318765]
 stream = ExtResource("5_3nod3")
-volume_db = 4.0
+volume_db = 6.0
 pitch_scale = 3.0

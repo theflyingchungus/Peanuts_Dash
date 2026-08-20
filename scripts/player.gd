@@ -87,10 +87,9 @@ func _physics_process(delta: float) -> void:
 	elif (velocity.y > 1 or velocity.y < 1) and not is_on_floor():	# Airborne animation
 		animated_sprite_2d.animation = "jump"
 	else:
-		animated_sprite_2d.animation = "idle"
+		animated_sprite_2d.animation = "idle"	# Idle animation
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
 	if not movement_locked:
@@ -125,9 +124,8 @@ func _physics_process(delta: float) -> void:
 			else:
 				_process_dash(delta)
 			move_and_slide()
-			return # skip normal movement/gravity this frame
-
-	else:
+			return # Skip normal movement/gravity this frame
+	else:	# During screen transition
 		velocity.x = 0
 		velocity.y = 0
 	

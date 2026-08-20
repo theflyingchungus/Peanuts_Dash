@@ -128,7 +128,7 @@ shape = SubResource("RectangleShape2D_okmhf")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1105889123]
 
 [node name="FromStart" type="Marker2D" parent="SpawnPoints" unique_id=1466210597]
-position = Vector2(421.33334, 128.66667)
+position = Vector2(581.6667, 323.6667)
 
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=432030578]
 position = Vector2(609.6667, 109.00001)
