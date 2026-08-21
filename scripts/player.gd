@@ -80,17 +80,22 @@ func _physics_process(delta: float) -> void:
 		# skip gravity entirely during float window
 	elif not is_on_floor():
 		velocity += get_gravity() * delta
-	
-	# Add animations.
-	if (velocity.x > 1 or velocity.x < -1) and is_on_floor():	# Walking animation
-		animated_sprite_2d.animation = "walk"
-	elif (velocity.y > 1 or velocity.y < 1) and not is_on_floor():	# Airborne animation
-		animated_sprite_2d.animation = "jump"
-	else:
-		animated_sprite_2d.animation = "idle"	# Idle animation
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	
+	# Add animations.
+	if abs(velocity.x) > 1 and is_on_floor():	# Walking animation
+		_play_if_not_already("walk")
+	elif abs(velocity.y) > 1 and not is_on_floor():	# Airborne animation
+		_play_if_not_already("jump")
+	else:
+		_play_if_not_already("idle")	# Idle animation
+	
+	if direction == 1.0:
+		animated_sprite_2d.flip_h = false
+	elif direction == -1.0:
+		animated_sprite_2d.flip_h = true
 	
 	if not movement_locked:
 		# Handle walking
@@ -133,11 +138,11 @@ func _physics_process(delta: float) -> void:
 		dash_direction.x = sign(direction)
 	
 	move_and_slide()
-	
-	if direction == 1.0:
-		animated_sprite_2d.flip_h = false
-	elif direction == -1.0:
-		animated_sprite_2d.flip_h = true
+
+# Animation function
+func _play_if_not_already(anim_name: String) -> void:
+	if animated_sprite_2d.animation != anim_name:
+		animated_sprite_2d.play(anim_name)
 		
 func lock_movement():
 	movement_locked = true

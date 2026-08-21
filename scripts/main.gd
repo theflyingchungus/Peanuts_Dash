@@ -2,7 +2,7 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 7
+var level: int = 8
 var current_level_root: Node = null
 var entry_spawn_point: String = "FromPreviousLevel"
 
@@ -49,8 +49,16 @@ func _setup_level(level_root: Node) -> void:
 	if pit:
 		pit.body_entered.connect(_on_pit_body_entered)
 	
-	level_label.text = "LEVEL: %s" % level
+	var camera = level_root.find_child("Camera2D", true, false)
+	var bounds = level_root.get_node_or_null("CameraBounds")  # a Marker2D-based rect, or use exported values
+	if camera and bounds:
+		camera.limit_left = bounds.limit_left
+		camera.limit_right = bounds.limit_right
+		camera.limit_top = bounds.limit_top
+		camera.limit_bottom = bounds.limit_bottom
 	
+	level_label.text = "LEVEL: %s" % level
+		
 func _fade(to_alpha: float) -> void:
 	var tween := create_tween()
 	tween.tween_property(fade, "modulate:a", to_alpha, 0.5)

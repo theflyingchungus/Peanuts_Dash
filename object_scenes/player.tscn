@@ -44,10 +44,6 @@ region = Rect2(600, 0, 100, 140)
 atlas = ExtResource("2_sxx0w")
 region = Rect2(700, 0, 100, 140)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xve5"]
-atlas = ExtResource("3_sxx0w")
-region = Rect2(0, 0, 140, 140)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_7oa8a"]
 atlas = ExtResource("3_sxx0w")
 region = Rect2(140, 0, 140, 140)
@@ -113,9 +109,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6xve5")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_7oa8a")
 }, {
 "duration": 1.0,
@@ -130,7 +123,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_clyoo")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"jump",
 "speed": 15.0
 }, {
@@ -144,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v388v")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"walk",
 "speed": 10.0
 }]
@@ -162,10 +155,10 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1231809985]
 sprite_frames = SubResource("SpriteFrames_okmhf")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
-frame = 5
-frame_progress = 0.9191066
+frame = 7
+frame_progress = 0.7594649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812758183]
 position = Vector2(0, 6)
@@ -178,3 +171,7 @@ stream = ExtResource("4_v388v")
 stream = ExtResource("5_3nod3")
 volume_db = 6.0
 pitch_scale = 3.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2095267604 groups=["player_camera"]]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
