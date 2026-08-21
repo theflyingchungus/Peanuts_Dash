@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 [global_group]
 
 player_camera=""
+level_manager="to assign unique IDs to peanuts"
 
 [input]
 

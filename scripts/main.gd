@@ -2,7 +2,7 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 9
+var level: int = 8
 var current_level_root: Node = null
 var entry_spawn_point: String = "FromPreviousLevel"
 
@@ -31,6 +31,10 @@ func _load_level(level_number: int, secret: bool) -> void:
 
 func _setup_level(level_root: Node) -> void:
 	# Each entry: node name → (level delta, spawn point name, goes to secret level)
+	# Level delta should be:
+							# 1 if player proceeds to the next level (via Exit)
+							# -1 if player returns to a previous level (via Entry)
+							# 0 if player visits or leaves a secret level (via Secret)
 	var triggers = {
 		"Exit": [1, "FromPreviousLevel", false],
 		"Exit2": [1, "FromPreviousLevel2", false],
@@ -38,10 +42,6 @@ func _setup_level(level_root: Node) -> void:
 		"Entry": [-1, "FromNextLevel", false],
 		"Entry2": [-1, "FromNextLevel2", false],
 		"EntrySecret": [0, "FromSecretLevel", false],
-		# Special one-off: Level 8's secret exit jumps straight to Level 10
-		#"ExitToLevel10": [0, "FromLevel8SecretExit", false, 10],
-		# Special one-off: Level 10's entry from that path goes straight back to Level 8
-		#"EntryFromLevel8Secret": [0, "FromLevel10ViaSecretExit", false, 8],
 	}
 	
 	for node_name in triggers.keys():

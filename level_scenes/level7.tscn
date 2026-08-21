@@ -174,16 +174,13 @@ position = Vector2(601.6666, 327.66666)
 [node name="Peanuts" type="Node2D" parent="." unique_id=1557879000]
 
 [node name="Peanut" parent="Peanuts" unique_id=1316320266 instance=ExtResource("5_eekre")]
-position = Vector2(82.66667, 107.33333)
-peanut_id = "l07_p01"
+position = Vector2(80, 105)
 
 [node name="Peanut2" parent="Peanuts" unique_id=1837911633 instance=ExtResource("5_eekre")]
 position = Vector2(292.33334, 95.99999)
-peanut_id = "l07_p02"
 
 [node name="Peanut3" parent="Peanuts" unique_id=1883464414 instance=ExtResource("5_eekre")]
 position = Vector2(600.00006, 40.33333)
-peanut_id = "l07_p03"
 
 [node name="MovingPlatforms" type="Node2D" parent="." unique_id=1651985816]
 

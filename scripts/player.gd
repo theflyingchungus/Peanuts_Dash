@@ -146,9 +146,6 @@ func _play_if_not_already(anim_name: String) -> void:
 		
 func lock_movement():
 	movement_locked = true
-
-func unlock_movement():
-	movement_locked = false
 	
 func start_dash():
 	is_dashing = true

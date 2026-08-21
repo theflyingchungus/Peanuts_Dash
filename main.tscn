@@ -22,7 +22,7 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
 font_size = 32
 
-[node name="Main" type="Node2D" unique_id=1211748853]
+[node name="Main" type="Node2D" unique_id=1211748853 groups=["level_manager"]]
 script = ExtResource("1_0xm2m")
 
 [node name="LevelRoot" parent="." unique_id=2043730505 instance=ExtResource("3_h2yge")]

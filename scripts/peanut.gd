@@ -1,15 +1,17 @@
 extends Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
-@export var peanut_id: String = ""  # set a unique value per peanut in the Inspector
 @onready var collect_sound: AudioStreamPlayer2D = $Collect
+
+var peanut_id: String = ""
 
 signal collected
 
 func _ready():
-	if peanut_id == "":
-		push_warning("Peanut has no unique ID assigned!")
-		return
+	var level_manager = get_tree().get_first_node_in_group("level_manager")
+	var level_identifier = str(level_manager.level) if level_manager else "unknown"
+	
+	peanut_id = level_identifier + "_peanut_" + str(global_position)
 
 	if CollectibleState.is_collected(peanut_id):
 		queue_free()  # already collected — remove immediately, don't even show it
