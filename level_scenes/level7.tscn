@@ -191,7 +191,7 @@ peanut_id = "l07_p03"
 position = Vector2(180.33334, 211.33334)
 
 [node name="MovingPlatformDown2" parent="MovingPlatforms" unique_id=1667332879 instance=ExtResource("6_o2rxo")]
-position = Vector2(407.6667, 177.33334)
+position = Vector2(432.00003, 234.66669)
 
 [node name="MovingPlatformUp" parent="MovingPlatforms" unique_id=1542772247 instance=ExtResource("7_08yux")]
 position = Vector2(294.33334, 241.33333)
