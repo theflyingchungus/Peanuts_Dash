@@ -2,7 +2,7 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 8
+var level: int = 1
 var current_level_root: Node = null
 var entry_spawn_point: String = "FromPreviousLevel"
 
@@ -17,16 +17,16 @@ func _ready() -> void:
 
 func _load_level(level_number: int, secret: bool) -> void:
 	await _fade(1.0)
-	
+
 	if current_level_root:
 		current_level_root.queue_free()
-		
+
 	var level_path = "res://level_scenes/level%s%s.tscn" % [level_number, "secret" if secret else ""]
 	current_level_root = load(level_path).instantiate()
 	add_child(current_level_root)
 	current_level_root.name = "LevelRoot"
 	_setup_level(current_level_root)
-	
+
 	await _fade(0.0)
 
 func _setup_level(level_root: Node) -> void:
@@ -43,17 +43,17 @@ func _setup_level(level_root: Node) -> void:
 		"Entry2": [-1, "FromNextLevel2", false],
 		"EntrySecret": [0, "FromSecretLevel", false],
 	}
-	
+
 	for node_name in triggers.keys():
 		var node = level_root.get_node_or_null(node_name)
 		if node:
 			var data = triggers[node_name]
 			node.body_entered.connect(_on_level_transition.bind(data[0], data[1], data[2]))
-	
+
 	var pit = level_root.get_node_or_null("Pit")
 	if pit:
 		pit.body_entered.connect(_on_pit_body_entered)
-	
+
 	var camera = level_root.find_child("Camera2D", true, false)
 	var bounds = level_root.get_node_or_null("CameraBounds")
 	if camera and bounds:
@@ -61,7 +61,7 @@ func _setup_level(level_root: Node) -> void:
 		camera.limit_right = bounds.limit_right
 		camera.limit_top = bounds.limit_top
 		camera.limit_bottom = bounds.limit_bottom
-	
+
 	level_label.text = "LEVEL: %s" % level
 
 func _fade(to_alpha: float) -> void:
