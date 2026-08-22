@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dgpthuj0wupef" path="res://scripts/main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ci7kqyywincmr" path="res://scripts/score_label.gd" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://oo7v6slx1fia" path="res://level_scenes/level1.tscn" id="3_h2yge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okmhf"]
 bg_color = Color(0.8263198, 0.49986815, 0.4374329, 1)
@@ -24,8 +23,6 @@ font_size = 32
 
 [node name="Main" type="Node2D" unique_id=1211748853 groups=["level_manager"]]
 script = ExtResource("1_0xm2m")
-
-[node name="LevelRoot" parent="." unique_id=2043730505 instance=ExtResource("3_h2yge")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1880537882]
 

@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="5_asdl4"]
 [ext_resource type="PackedScene" uid="uid://c0vtewelco70y" path="res://object_scenes/moving_platform_down.tscn" id="6_dg2k7"]
 [ext_resource type="PackedScene" uid="uid://bhlqieghpt402" path="res://object_scenes/moving_platform_up.tscn" id="7_t8kxm"]
+[ext_resource type="Script" uid="uid://xo8rapg848ii" path="res://scripts/camera_bounds.gd" id="9_jpjvp"]
 [ext_resource type="Script" uid="uid://df4o67eju4akk" path="res://scripts/camera_zone.gd" id="10_2i40g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4oyj"]
-size = Vector2(1021.3333, 400)
+size = Vector2(949.3333, 328)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qttdp"]
-size = Vector2(658.6666, 178.66672)
+size = Vector2(325.3333, 178.66669)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_okmhf"]
 size = Vector2(20, 40)
@@ -61,19 +62,20 @@ limit_bottom = 1080
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZoneA" unique_id=1813861762]
-position = Vector2(185.33334, 24)
+position = Vector2(189.33334, 6.6666718)
 shape = SubResource("RectangleShape2D_n4oyj")
 
 [node name="CameraZoneB" type="Area2D" parent="." unique_id=1325211548]
 position = Vector2(669.3334, -69.33334)
 script = ExtResource("10_2i40g")
-limit_left = 1020
+limit_left = 1024
 limit_top = -480
 limit_right = 2940
 limit_bottom = 1080
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraZoneB" unique_id=11292652]
+position = Vector2(128, -1.3333282)
 shape = SubResource("RectangleShape2D_qttdp")
 
 [node name="Player" parent="." unique_id=844204041 instance=ExtResource("4_2vj62")]
@@ -104,13 +106,13 @@ shape = SubResource("RectangleShape2D_17rvj")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=45668141]
 
 [node name="FromPreviousLevel" type="Marker2D" parent="SpawnPoints" unique_id=1556983734]
-position = Vector2(55.99994, 317.3333)
+position = Vector2(792.00006, 40)
 
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=1481790235]
-position = Vector2(944, 325.3333)
+position = Vector2(952, 320)
 
 [node name="FromNextLevel2" type="Marker2D" parent="SpawnPoints" unique_id=328891512]
-position = Vector2(800, -160)
+position = Vector2(800.00006, -161.00003)
 
 [node name="Peanuts" type="Node2D" parent="." unique_id=1557879000]
 
@@ -144,3 +146,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=837818536]
 position = Vector2(-3.666626, 0)
 shape = SubResource("RectangleShape2D_o2rxo")
+
+[node name="CameraBounds" type="Node2D" parent="." unique_id=1994998578]
+script = ExtResource("9_jpjvp")

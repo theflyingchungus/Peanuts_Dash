@@ -125,6 +125,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=226824200]
+visible = false
 shape = SubResource("CapsuleShape2D_17rvj")
 
 [node name="Collect" type="AudioStreamPlayer2D" parent="." unique_id=235426279]
