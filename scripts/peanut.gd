@@ -17,7 +17,7 @@ func _ready():
 		queue_free()  # already collected — remove immediately, don't even show it
 		return
 	
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	animated_sprite_2d.animation = "collected"
 	collected.emit()
 	call_deferred("_disable_collision")

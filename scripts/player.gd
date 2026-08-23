@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 const SPEED = 400.0
 
-# Stops the player upon entering/exiting a level
+# On level load, allows the player to move again
 var movement_locked = false
 
 # Dash settings
@@ -134,8 +134,8 @@ func _physics_process(delta: float) -> void:
 			move_and_slide()
 			return # Skip normal movement/gravity this frame
 		
-		# Player stays in the direction of last input so dash can launch in that direction
-		# while no direction input is pressed
+		# Player stays in the direction of last input n
+		# so that dash can launch in that direction while no direction input is pressed
 		if direction != 0:
 			dash_direction.x = sign(direction)
 		

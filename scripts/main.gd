@@ -2,7 +2,7 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 8
+var level: int = 9
 var current_level_root: Node = null
 var entry_spawn_point: String = "FromPreviousLevel"
 
