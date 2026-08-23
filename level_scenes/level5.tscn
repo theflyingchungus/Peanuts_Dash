@@ -132,6 +132,8 @@ position = Vector2(86, 318)
 
 [node name="Exit" type="Area2D" parent="." unique_id=237510733]
 position = Vector2(645.6667, 310.00003)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=214833813]
@@ -139,6 +141,8 @@ position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_okmhf")
 
 [node name="Entry" type="Area2D" parent="." unique_id=364480213]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry" unique_id=1759274364]
 position = Vector2(-5.3333335, 319.6667)
@@ -146,6 +150,8 @@ shape = SubResource("RectangleShape2D_17rvj")
 
 [node name="Pit" type="Area2D" parent="." unique_id=972985593]
 position = Vector2(324, 390.33334)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=616867684]

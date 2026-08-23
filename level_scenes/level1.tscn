@@ -41,6 +41,8 @@ position = Vector2(36.33333, 40.66667)
 
 [node name="Exit" type="Area2D" parent="." unique_id=237510733]
 position = Vector2(647.3334, 90)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=214833813]
@@ -50,7 +52,7 @@ shape = SubResource("RectangleShape2D_okmhf")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1105889123]
 
 [node name="FromStart" type="Marker2D" parent="SpawnPoints" unique_id=1466210597]
-position = Vector2(581.6667, 323.6667)
+position = Vector2(573.3333, 318.6667)
 
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=432030578]
 position = Vector2(609.6667, 109.00001)

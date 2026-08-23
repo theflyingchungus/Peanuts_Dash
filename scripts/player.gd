@@ -81,8 +81,7 @@ func _physics_process(delta: float) -> void:
 	elif not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("ui_left", "ui_right")
+
 	
 	# Add animations.
 	if abs(velocity.x) > 1 and is_on_floor():	# Walking animation
@@ -92,12 +91,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		_play_if_not_already("idle")	# Idle animation
 	
-	if direction == 1.0:
-		animated_sprite_2d.flip_h = false
-	elif direction == -1.0:
-		animated_sprite_2d.flip_h = true
-	
 	if not movement_locked:
+		
+		# Get the input direction and handle the movement/deceleration.
+		var direction = Input.get_axis("ui_left", "ui_right")
+		
+		if direction == 1.0:
+			animated_sprite_2d.flip_h = false
+		elif direction == -1.0:
+			animated_sprite_2d.flip_h = true
+		
 		# Handle walking
 		if direction:
 			velocity.x = direction * SPEED
@@ -130,12 +133,15 @@ func _physics_process(delta: float) -> void:
 				_process_dash(delta)
 			move_and_slide()
 			return # Skip normal movement/gravity this frame
+		
+		# Player stays in the direction of last input so dash can launch in that direction
+		# while no direction input is pressed
+		if direction != 0:
+			dash_direction.x = sign(direction)
+		
 	else:	# During screen transition
 		velocity.x = 0
 		velocity.y = 0
-	
-	if direction != 0:
-		dash_direction.x = sign(direction)
 	
 	move_and_slide()
 

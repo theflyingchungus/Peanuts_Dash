@@ -41,6 +41,13 @@ dash={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Floors, walls, platforms"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Doors, pits, collectibles"
+2d_physics/layer_4="Camera"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

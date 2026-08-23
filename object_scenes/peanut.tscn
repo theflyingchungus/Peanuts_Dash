@@ -116,6 +116,8 @@ height = 26.400024
 [node name="Peanut" type="Area2D" unique_id=1316320266]
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_vtj2m")
 metadata/_edit_group_ = true
 

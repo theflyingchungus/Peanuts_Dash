@@ -58,6 +58,8 @@ position = Vector2(86, 318)
 
 [node name="Exit" type="Area2D" parent="." unique_id=237510733]
 position = Vector2(645.6667, 310.00003)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit" unique_id=214833813]
@@ -65,6 +67,8 @@ position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_okmhf")
 
 [node name="Entry" type="Area2D" parent="." unique_id=364480213]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry" unique_id=1759274364]
 position = Vector2(-5.3333335, 319.6667)
@@ -72,6 +76,8 @@ shape = SubResource("RectangleShape2D_17rvj")
 
 [node name="Entry2" type="Area2D" parent="." unique_id=1066690692]
 position = Vector2(82.666664, 402.33322)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entry2" unique_id=1313945604]
@@ -80,11 +86,23 @@ shape = SubResource("RectangleShape2D_n4oyj")
 
 [node name="ExitSecret" type="Area2D" parent="." unique_id=653120277]
 position = Vector2(645.3333, 232)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitSecret" unique_id=1285872835]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_ux1gn")
+
+[node name="Pit" type="Area2D" parent="." unique_id=274751719]
+position = Vector2(325.33334, 402.33334)
+collision_layer = 4
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=325647646]
+position = Vector2(-20, 0)
+shape = SubResource("RectangleShape2D_cb1a3")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=45668141]
 
@@ -103,14 +121,6 @@ position = Vector2(618.6667, 240)
 [node name="CameraBounds" type="Node2D" parent="." unique_id=2033130717]
 script = ExtResource("7_s03q8")
 
-[node name="Pit" type="Area2D" parent="." unique_id=274751719]
-position = Vector2(325.33334, 402.3333)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=325647646]
-position = Vector2(-20, 0)
-shape = SubResource("RectangleShape2D_cb1a3")
-
 [connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@252291" to="TileMaps/TileMapPeanuts/@Area2D@252291" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@252292" to="TileMaps/TileMapPeanuts/@Area2D@252292" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@72091" to="TileMaps/TileMapPeanuts/@Area2D@72091" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@72092" to="TileMaps/TileMapPeanuts/@Area2D@72092" method="_on_body_entered"]

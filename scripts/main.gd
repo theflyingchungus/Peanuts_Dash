@@ -2,7 +2,7 @@ extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
 
-var level: int = 1
+var level: int = 8
 var current_level_root: Node = null
 var entry_spawn_point: String = "FromPreviousLevel"
 
@@ -92,18 +92,16 @@ func _setup_level(level_root: Node) -> void:
 # When Player walks into a level transition, calls the respective function
 
 func _on_level_transition(body: Node2D, level_delta: int, spawn_point: String, secret: bool) -> void:
-	if body.name == "Player":
-		level += level_delta
-		body.lock_movement()
-		entry_spawn_point = spawn_point
-		GameState.set_spawn_point(entry_spawn_point)
-		call_deferred("_load_level", level, secret)
+	level += level_delta
+	body.lock_movement()
+	entry_spawn_point = spawn_point
+	GameState.set_spawn_point(entry_spawn_point)
+	call_deferred("_load_level", level, secret)
 
 func _on_pit_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
-		body.lock_movement()
-		GameState.set_spawn_point(entry_spawn_point)
-		call_deferred("_load_level", level, false)
+	body.lock_movement()
+	GameState.set_spawn_point(entry_spawn_point)
+	call_deferred("_load_level", level, false)
 
 # ----------------------
 # SCREEN TRANSITION VFX
