@@ -47,6 +47,7 @@ _data = {
 metadata/_edit_group_ = true
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=71144019]
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=821639381]
 texture_filter = 1

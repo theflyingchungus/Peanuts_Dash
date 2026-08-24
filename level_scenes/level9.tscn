@@ -50,7 +50,7 @@ tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAAAAAIAAAADAAEAAAAAAAgAAAADAAE
 tile_set = ExtResource("4_31pkt")
 
 [node name="TileMapPeanuts" type="TileMapLayer" parent="TileMaps" unique_id=886302213]
-tile_map_data = PackedByteArray("AAAkAAoAAAAAAAAAAQASAA0AAAAAAAAAAQADAA4AAAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAEAAwAAAAAAAAAAQAPAAoAAAAAAAAAAQAdAAcAAAAAAAAAAQA=")
 tile_set = ExtResource("5_ky58e")
 
 [node name="Player" parent="." unique_id=844204041 instance=ExtResource("6_rku5i")]
@@ -121,6 +121,6 @@ position = Vector2(618.6667, 240)
 [node name="CameraBounds" type="Node2D" parent="." unique_id=2033130717]
 script = ExtResource("7_s03q8")
 
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@177939" to="TileMaps/TileMapPeanuts/@Area2D@177939" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@177940" to="TileMaps/TileMapPeanuts/@Area2D@177940" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@108163" to="TileMaps/TileMapPeanuts/@Area2D@108163" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@108164" to="TileMaps/TileMapPeanuts/@Area2D@108164" method="_on_body_entered"]

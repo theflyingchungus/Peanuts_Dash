@@ -6,7 +6,7 @@
 [ext_resource type="TileSet" uid="uid://blib31t0shlw3" path="res://tile_sets/grass.tres" id="3_ut4vg"]
 [ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://object_scenes/player.tscn" id="4_4lesv"]
 [ext_resource type="PackedScene" uid="uid://cpw668gfhlnok" path="res://object_scenes/moving_platform_right.tscn" id="5_ipvkg"]
-[ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="6_03af3"]
+[ext_resource type="TileSet" uid="uid://crm8w2devo44e" path="res://tile_sets/peanuts.tres" id="5_ut4vg"]
 [ext_resource type="Script" uid="uid://xo8rapg848ii" path="res://scripts/camera_bounds.gd" id="7_4lesv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b3oru"]
@@ -127,6 +127,10 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAAAAAIAAAADAAEAAAAAAAgAAAADAAEAAAAAAAkAAAADAAEAAAAAAAoAAAADAAEAAAAAAAsAAAADAAEAAAAAAAwAAAADAAEAAAAAAA0AAAADAAEAAAABABEAAAAKAAAAAAACABEAAAAKAAAAAAADABEAAAAKAAAAAAAEABEAAAAKAAAAAAAbABEAAAALAAAAAAAcABEAAAAKAAAAAAAdABEAAAALAAAAAAAeABEAAAAKAAAAAAAfAAEAAAAGAAEAAAAfAAIAAAAGAAEAAAAfAAgAAAAGAAEAAAAfAAkAAAAGAAEAAAAfAAoAAAAGAAEAAAAfAAsAAAAGAAEAAAAfAAwAAAAGAAEAAAAfAA0AAAAGAAEAAAABAAAAAAAKAAEAAAACAAAAAAALAAEAAAADAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAFAAAAAAAKAAEAAAAGAAAAAAALAAEAAAAHAAAAAAAKAAEAAAAIAAAAAAALAAEAAAAJAAAAAAAKAAEAAAAKAAAAAAALAAEAAAALAAAAAAAKAAEAAAAMAAAAAAALAAEAAAANAAAAAAAKAAEAAAAOAAAAAAALAAEAAAAPAAAAAAAKAAEAAAAQAAAAAAALAAEAAAARAAAAAAAKAAEAAAASAAAAAAALAAEAAAATAAAAAAAKAAEAAAAUAAAAAAALAAEAAAAVAAAAAAAKAAEAAAAWAAAAAAALAAEAAAAXAAAAAAAKAAEAAAAYAAAAAAALAAEAAAAZAAAAAAAKAAEAAAAaAAAAAAALAAEAAAAbAAAAAAAKAAEAAAAcAAAAAAALAAEAAAAdAAAAAAAKAAEAAAAeAAAAAAALAAEAAAAfAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAfABEAAAAKAAAAAAAfAAMAAAAGAAEAAAAfAAQAAAAGAAEAAAAfAAUAAAAGAAEAAAAfAAYAAAAGAAEAAAAfAAcAAAAGAAEAAAAfAA4AAAAGAAIAAAAAAA4AAAABAAEAAAAAABEAAAAHAAAAAAAAAAMAAAADAAEAAAAAAAQAAAADAAEAAAAAAAUAAAADAAEAAAAAAAYAAAADAAEAAAAAAAcAAAADAAEAAAAFABEAAAADAAAAAAAaABEAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_17rvj")
 
+[node name="TileMapPeanuts" type="TileMapLayer" parent="TileMaps" unique_id=936022353]
+tile_map_data = PackedByteArray("AAAKAA8AAAAAAAAAAQAUAA8AAAAAAAAAAQAdAAwAAAAAAAAAAQA=")
+tile_set = ExtResource("5_ut4vg")
+
 [node name="Player" parent="." unique_id=844204041 instance=ExtResource("4_4lesv")]
 position = Vector2(81.666664, 327.33334)
 
@@ -174,16 +178,9 @@ position = Vector2(250, 350)
 [node name="MovingPlatformRight2" parent="MovingPlatforms" unique_id=529256675 instance=ExtResource("5_ipvkg")]
 position = Vector2(400, 350)
 
-[node name="Peanuts" type="Node2D" parent="." unique_id=1560413900]
-
-[node name="Peanut" parent="Peanuts" unique_id=1316320266 instance=ExtResource("6_03af3")]
-position = Vector2(232.66666, 315)
-
-[node name="Peanut2" parent="Peanuts" unique_id=359171218 instance=ExtResource("6_03af3")]
-position = Vector2(392, 316.00003)
-
-[node name="Peanut3" parent="Peanuts" unique_id=817896385 instance=ExtResource("6_03af3")]
-position = Vector2(588.00006, 223)
-
 [node name="CameraBounds" type="Node2D" parent="." unique_id=365350823]
 script = ExtResource("7_4lesv")
+
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@210574" to="TileMaps/TileMapPeanuts/@Area2D@210574" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@210575" to="TileMaps/TileMapPeanuts/@Area2D@210575" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]

@@ -108,7 +108,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		# Handle jumping
-		if jump_buffer_timer > 0 and coyote_timer > 0:
+		if jump_buffer_timer > 0 and coyote_timer > 0 and Global.has_power_up(Global.PowerUp.JUMP):
 			velocity.y = jump_velocity
 			has_jumped = true
 			coyote_timer = 0
@@ -139,7 +139,7 @@ func _physics_process(delta: float) -> void:
 		if direction != 0:
 			dash_direction.x = sign(direction)
 		
-	else:	# During screen transition
+	else:	# During screen transition or falling into a pit, freezes the character
 		velocity.x = 0
 		velocity.y = 0
 	

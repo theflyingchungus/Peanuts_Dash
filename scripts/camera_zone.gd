@@ -8,11 +8,14 @@ extends Area2D
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)
+	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node2D) -> void:
 	var camera = body.find_child("Camera2D", true, false)
 	if camera:
-		camera.limit_left = limit_left
-		camera.limit_top = limit_top
-		camera.limit_right = limit_right
-		camera.limit_bottom = limit_bottom
+		camera.push_zone(self)
+
+func _on_body_exited(body: Node2D) -> void:
+	var camera = body.find_child("Camera2D", true, false)
+	if camera:
+		camera.pop_zone(self)

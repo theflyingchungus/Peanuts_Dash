@@ -9,7 +9,7 @@ func _ready() -> void:
 	if spawn_points.has_node(spawn_name):
 		player.global_position = spawn_points.get_node(spawn_name).global_position
 	else:
-		# fallback so you never spawn at (0,0) by accident
+		# Fallback so Player never spawn at (0,0) by accident
 		player.global_position = spawn_points.get_node("FromPreviousLevel").global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ip1v8bqio4b7" path="res://sprites/Sprite-grass-tile.png" id="3_08yux"]
 [ext_resource type="TileSet" uid="uid://blib31t0shlw3" path="res://tile_sets/grass.tres" id="3_eekre"]
 [ext_resource type="PackedScene" uid="uid://c3gw6omwqgc2i" path="res://object_scenes/player.tscn" id="4_mtcck"]
-[ext_resource type="PackedScene" uid="uid://dudwskhhfffb2" path="res://object_scenes/peanut.tscn" id="5_eekre"]
+[ext_resource type="TileSet" uid="uid://crm8w2devo44e" path="res://tile_sets/peanuts.tres" id="5_eekre"]
 [ext_resource type="PackedScene" uid="uid://c0vtewelco70y" path="res://object_scenes/moving_platform_down.tscn" id="6_o2rxo"]
 [ext_resource type="PackedScene" uid="uid://bhlqieghpt402" path="res://object_scenes/moving_platform_up.tscn" id="7_08yux"]
 [ext_resource type="Script" uid="uid://xo8rapg848ii" path="res://scripts/camera_bounds.gd" id="8_mtcck"]
@@ -148,6 +148,10 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAAAAEAAAADAAEAAAAAAAIAAAADAAEAAAABABEAAAAKAAAAAAACABEAAAAKAAAAAAADABEAAAAKAAAAAAAEABEAAAAKAAAAAAAfAAEAAAAGAAEAAAAfAAIAAAAGAAEAAAAfAAgAAAAGAAEAAAAfAAkAAAAGAAEAAAAfAAoAAAAGAAEAAAAfAAsAAAAGAAEAAAAfAAwAAAAGAAEAAAAfAA0AAAAGAAEAAAABAAAAAAAKAAEAAAACAAAAAAALAAEAAAADAAAAAAAKAAEAAAAEAAAAAAALAAEAAAAFAAAAAAAKAAEAAAAGAAAAAAALAAEAAAAHAAAAAAAKAAEAAAAIAAAAAAALAAEAAAAJAAAAAAAKAAEAAAAKAAAAAAALAAEAAAALAAAAAAAKAAEAAAAMAAAAAAALAAEAAAANAAAAAAAKAAEAAAAOAAAAAAALAAEAAAAPAAAAAAAKAAEAAAAQAAAAAAALAAEAAAARAAAAAAAKAAEAAAASAAAAAAALAAEAAAATAAAAAAAKAAEAAAAUAAAAAAALAAEAAAAVAAAAAAAKAAEAAAAWAAAAAAALAAEAAAAXAAAAAAAKAAEAAAAYAAAAAAALAAEAAAAZAAAAAAAKAAEAAAAaAAAAAAALAAEAAAAbAAAAAAAKAAEAAAAcAAAAAAALAAEAAAAdAAAAAAAKAAEAAAAeAAAAAAALAAEAAAAAABEAAAAHAAAAAAAfAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAAAAMAAAAIAAEAAAAfAAMAAAAGAAEAAAAfAAQAAAAGAAEAAAAfAAUAAAAGAAEAAAAfAAYAAAAGAAEAAAAfAAcAAAAGAAEAAAAfAA4AAAAGAAIAAAAAAA4AAAABAAEAAAAAAA0AAAAIAAEAAAAAAAwAAAAIAAEAAAAAAAsAAAAIAAEAAAAAAAoAAAAIAAEAAAAAAAkAAAAIAAEAAAAAAAgAAAAIAAEAAAAAAAcAAAAIAAEAAAAAAAYAAAAIAAEAAAAAAAUAAAAIAAEAAAAAAAQAAAAIAAEAAAAeABEAAAAKAAAAAAAfABEAAAALAAAAAAAdABEAAAALAAAAAAAcABEAAAAJAAAAAAA=")
 tile_set = SubResource("TileSet_17rvj")
 
+[node name="TileMapPeanuts" type="TileMapLayer" parent="TileMaps" unique_id=1910061922]
+tile_map_data = PackedByteArray("AAADAAUAAAAAAAAAAQAdAAIAAAAAAAAAAQARAAUAAAAAAAAAAQA=")
+tile_set = ExtResource("5_eekre")
+
 [node name="Player" parent="." unique_id=844204041 instance=ExtResource("4_mtcck")]
 position = Vector2(41.666664, 195.66667)
 
@@ -177,17 +181,6 @@ position = Vector2(30.999998, 326.33334)
 [node name="FromNextLevel" type="Marker2D" parent="SpawnPoints" unique_id=1481790235]
 position = Vector2(601.6666, 327.66666)
 
-[node name="Peanuts" type="Node2D" parent="." unique_id=1557879000]
-
-[node name="Peanut" parent="Peanuts" unique_id=1316320266 instance=ExtResource("5_eekre")]
-position = Vector2(80, 105)
-
-[node name="Peanut2" parent="Peanuts" unique_id=1837911633 instance=ExtResource("5_eekre")]
-position = Vector2(292.33334, 95.99999)
-
-[node name="Peanut3" parent="Peanuts" unique_id=1883464414 instance=ExtResource("5_eekre")]
-position = Vector2(600.00006, 40.33333)
-
 [node name="MovingPlatforms" type="Node2D" parent="." unique_id=1651985816]
 
 [node name="MovingPlatformDown" parent="MovingPlatforms" unique_id=1694271473 instance=ExtResource("6_o2rxo")]
@@ -204,6 +197,8 @@ position = Vector2(535, 176)
 
 [node name="Pit" type="Area2D" parent="." unique_id=305524162]
 position = Vector2(324, 390.33334)
+collision_layer = 4
+collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=837818536]
@@ -212,3 +207,7 @@ shape = SubResource("RectangleShape2D_o2rxo")
 
 [node name="CameraBounds" type="Node2D" parent="." unique_id=322741660]
 script = ExtResource("8_mtcck")
+
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@198322" to="TileMaps/TileMapPeanuts/@Area2D@198322" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@198323" to="TileMaps/TileMapPeanuts/@Area2D@198323" method="_on_body_entered"]
