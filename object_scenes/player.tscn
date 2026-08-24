@@ -163,6 +163,7 @@ frame = 7
 frame_progress = 0.7594649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=812758183]
+visible = false
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_sxx0w")
 

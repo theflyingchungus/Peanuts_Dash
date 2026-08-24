@@ -3,20 +3,20 @@ extends Node
 
 enum PowerUp {
 	JUMP,
-	DOUBLE_JUMP,
 	DASH,
-	DOUBLE_DASH,
 	AIR_DASH,
+	DOUBLE_JUMP,
+	DOUBLE_DASH,
 }
 
 signal power_up_granted(id: int)
 
 var power_ups := {
 	PowerUp.JUMP: false,
-	PowerUp.DOUBLE_JUMP: false,
 	PowerUp.DASH: false,
-	PowerUp.DOUBLE_DASH: false,
 	PowerUp.AIR_DASH: false,
+	PowerUp.DOUBLE_JUMP: false,
+	PowerUp.DOUBLE_DASH: false,
 }
 
 

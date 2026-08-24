@@ -19,7 +19,7 @@ var movement_locked = false
 @export var coyote_time_duration = 0.1  # seconds of grace after leaving a platform
 @export var jump_buffer_duration = 0.1   # how early a jump press is still remembered
 
-var jump_velocity = -800.0
+var jump_velocity = -1150.0
 var dash_timer = 0.0
 var is_dashing = false
 var dash_direction: Vector2 = Vector2.RIGHT
@@ -108,7 +108,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		# Handle jumping
-		if jump_buffer_timer > 0 and coyote_timer > 0 and Global.has_power_up(Global.PowerUp.JUMP):
+		if jump_buffer_timer > 0 and coyote_timer > 0 \
+		and Global.has_power_up(Global.PowerUp.JUMP):
 			velocity.y = jump_velocity
 			has_jumped = true
 			coyote_timer = 0
@@ -120,7 +121,8 @@ func _physics_process(delta: float) -> void:
 		var can_air_dash = not is_on_floor() and not has_dashed
 		
 		# Handle dashing
-		if Input.is_action_just_pressed("dash") and (can_ground_dash or can_air_dash):
+		if Input.is_action_just_pressed("dash") and (can_ground_dash or can_air_dash) \
+		and Global.has_power_up(Global.PowerUp.DASH):
 			start_dash()
 		
 		# Handle dash-jumping
