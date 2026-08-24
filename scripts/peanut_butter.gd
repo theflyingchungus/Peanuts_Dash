@@ -21,6 +21,11 @@ func _on_body_entered(_body: Node2D) -> void:
 	CollectibleState.mark_collected(peanut_butter_id)
 	ScoreManager.add_point_10()
 	collect_sound.play()
+	
+	if peanut_butter_id.match("1_peanut_butter*"): # Replace number with level of power-up location
+		Global.grant_power_up(0) # JUMP
+	if peanut_butter_id.match("3_peanut_butter*"):
+		Global.grant_power_up(1) # DASH
 
 func _disable_collision() -> void:
 	collision_shape_2d.disabled = true

@@ -258,6 +258,7 @@ shape = SubResource("RectangleShape2D_lcj07")
 
 [node name="Collect" type="AudioStreamPlayer2D" parent="." unique_id=127987696]
 stream = ExtResource("2_j2wfy")
+volume_db = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
