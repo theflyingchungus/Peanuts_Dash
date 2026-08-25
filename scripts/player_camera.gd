@@ -9,6 +9,7 @@ func push_zone(zone: Node) -> void:
 		active_zones.erase(zone)
 	active_zones.append(zone)
 	_apply_bounds(zone)
+	limit_smoothed = true
 	
 func pop_zone(zone: Node) -> void:
 	if zone in active_zones:

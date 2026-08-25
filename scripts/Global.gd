@@ -13,7 +13,7 @@ signal power_up_granted(id: int)
 
 var power_ups := {
 	PowerUp.JUMP: true,
-	PowerUp.DASH: false,
+	PowerUp.DASH: true,
 	PowerUp.AIR_DASH: false,
 	PowerUp.DOUBLE_JUMP: false,
 	PowerUp.DOUBLE_DASH: false,

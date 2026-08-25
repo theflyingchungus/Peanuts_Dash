@@ -20,6 +20,7 @@ visible = false
 polygon = PackedVector2Array(0.6666667, -6, -0.6666667, -6, -8.666667, 10, 8.666667, 10)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=142537246]
+visible = false
 polygon = PackedVector2Array(1, -6, 9, 10, -9, 10, -1, -6, 0, -7)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

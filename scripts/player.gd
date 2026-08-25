@@ -110,17 +110,12 @@ func _physics_process(delta: float) -> void:
 		# Handle jumping
 		if jump_buffer_timer > 0 and coyote_timer > 0 \
 		and Global.has_power_up(Global.PowerUp.JUMP):
-			velocity.y = jump_velocity
-			has_jumped = true
-			coyote_timer = 0
-			jump_buffer_timer = 0   # consume the buffer so it can't fire twice
-			jump_sound.play()
+			start_jump()
 		
+		# Handle dashing
 		# Dash input: allowed on ground (with cooldown) OR once per jump in the air
 		var can_ground_dash = is_on_floor() and dash_cooldown_timer <= 0
 		var can_air_dash = not is_on_floor() and not has_dashed
-		
-		# Handle dashing
 		if Input.is_action_just_pressed("dash") and (can_ground_dash or can_air_dash) \
 		and Global.has_power_up(Global.PowerUp.DASH):
 			start_dash()
@@ -129,8 +124,7 @@ func _physics_process(delta: float) -> void:
 		if is_dashing:
 			# Allow jump to cancel the dash early, keeping dash momentum — ground dashes only
 			if Input.is_action_just_pressed("ui_accept") and dash_started_on_ground:
-				_end_dash_with_jump()
-				jump_sound.play()
+				_start_dash_jump()
 			else:
 				_process_dash(delta)
 			move_and_slide()
@@ -154,7 +148,14 @@ func _play_if_not_already(anim_name: String) -> void:
 		
 func lock_movement():
 	movement_locked = true
-	
+
+func start_jump():
+	velocity.y = jump_velocity
+	has_jumped = true
+	coyote_timer = 0
+	jump_buffer_timer = 0   # consume the buffer so it can't fire twice
+	jump_sound.play()
+
 func start_dash():
 	is_dashing = true
 	has_dashed = true
@@ -199,13 +200,14 @@ func _process_dash(delta):
 		velocity = dash_direction * dash_max_speed * end_dash_speed_multiplier
 		post_dash_float_timer = post_dash_float_duration # Brief no gravity after dash
 
-func _end_dash_with_jump():
+func _start_dash_jump():
 	is_dashing = false
 	velocity.y = jump_velocity
 	velocity.x *= dash_jump_boost_multiplier
 	# velocity.x is intentionally left untouched — carries the dash's horizontal speed forward
 	has_jumped = true
 	post_dash_float_timer = post_dash_float_duration  # optional: reuse the float window for a floatier arc
+	jump_sound.play()
 
 func spawn_afterimage():
 	var ghost = Sprite2D.new()

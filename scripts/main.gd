@@ -3,7 +3,7 @@ extends Node2D
 @onready var fade: ColorRect = $HUD/Fade
 @onready var pitfall_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var level: int = 3
+var level: int = 8
 var current_level_root: Node = null
 var entry_spawn_point: String = "FromPreviousLevel"
 
