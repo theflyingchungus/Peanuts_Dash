@@ -22,10 +22,19 @@ func _on_body_entered(_body: Node2D) -> void:
 	ScoreManager.add_point_10()
 	collect_sound.play()
 	
-	if peanut_butter_id.match("2_peanut_butter*"): # Replace number with the level of power-up location
-		Global.grant_power_up(0) # JUMP
-	if peanut_butter_id.match("3_peanut_butter*"):
-		Global.grant_power_up(1) # DASH
+	# Set the dict keys as the level of the respective power-up locations
+	var power_up_level_loc: Dictionary[int, int] = {
+		2: Global.PowerUp.JUMP,
+		5: Global.PowerUp.DASH,
+		7: Global.PowerUp.AIR_DASH,
+		8: Global.PowerUp.DOUBLE_JUMP,
+		10: Global.PowerUp.DOUBLE_DASH,
+	}
+	var search_id: int = int(peanut_butter_id.split("_")[0]) # Identify the level in the id
+	
+	for level in power_up_level_loc:
+		if search_id == level:
+			Global.grant_power_up(power_up_level_loc[level])
 
 func _disable_collision() -> void:
 	collision_shape_2d.disabled = true
