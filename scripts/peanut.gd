@@ -19,7 +19,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	animated_sprite_2d.animation = "collected"
 	call_deferred("_disable_collision")
 	CollectibleState.mark_collected(peanut_id)
-	ScoreManager.add_point()
+	SignalBus.add_point()
 	collect_sound.play()
 
 func _disable_collision() -> void:

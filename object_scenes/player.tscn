@@ -151,6 +151,7 @@ height = 132.0
 texture_filter = 1
 scale = Vector2(0.25, 0.25)
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_8gb5g")
 dash_speed_curve = SubResource("Curve_i3pqv")
 metadata/_edit_group_ = true

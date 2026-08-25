@@ -1,8 +1,9 @@
 extends Node
 
-var score: int = 0
-
+signal thorn_touched
 signal score_changed(new_score)
+
+var score: int = 0
 
 func add_point():
 	score += 1

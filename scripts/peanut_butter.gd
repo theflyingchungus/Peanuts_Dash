@@ -19,7 +19,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	animated_sprite_2d.animation = "collected"
 	call_deferred("_disable_collision")
 	CollectibleState.mark_collected(peanut_butter_id)
-	ScoreManager.add_point_10()
+	SignalBus.add_point_10()
 	collect_sound.play()
 	
 	# Set the dict keys as the level of the respective power-up locations

@@ -61,9 +61,9 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and not is_dashing:
 		has_jumped = false
 		has_dashed = false
-		coyote_timer = coyote_time_duration	# refresh grace window while grounded
+		coyote_timer = coyote_time_duration		# refresh grace window while grounded
 	else:
-		coyote_timer -= delta				#counts down once airborne
+		coyote_timer -= delta	#counts down once airborne
 
 	# Record a jump press into the buffer whenever it happens
 	if Input.is_action_just_pressed("ui_accept"):

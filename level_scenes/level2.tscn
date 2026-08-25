@@ -89,6 +89,6 @@ position = Vector2(609, 165)
 script = ExtResource("6_63j7r")
 
 [connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@58808" to="TileMaps/TileMapPeanuts/@Area2D@58808" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@58809" to="TileMaps/TileMapPeanuts/@Area2D@58809" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@230607" to="TileMaps/TileMapPeanuts/@Area2D@230607" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@230608" to="TileMaps/TileMapPeanuts/@Area2D@230608" method="_on_body_entered"]
 [connection signal="body_entered" from="TileMaps/TileMapPeanuts/PeanutButter" to="TileMaps/TileMapPeanuts/PeanutButter" method="_on_body_entered"]

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c3p5q8dnuiouf"]
+
+[ext_resource type="Texture2D" uid="uid://3v1incick8li" path="res://sprites/Sprite-thorn.png" id="1_5akpo"]
+[ext_resource type="Script" uid="uid://cxjyes31pggh6" path="res://scripts/thorns.gd" id="1_uqbny"]
+[ext_resource type="AudioStream" uid="uid://b4s2fubsfasrp" path="res://sounds/collect-chime.mp3" id="4_unlsr"]
+
+[node name="Thorns" type="Area2D" unique_id=734629159]
+texture_filter = 1
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_uqbny")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1620343606]
+texture = ExtResource("1_5akpo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2142428880]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=908075648]
+visible = false
+polygon = PackedVector2Array(0.6666667, -6, -0.6666667, -6, -8.666667, 10, 8.666667, 10)
+
+[node name="Collect" type="AudioStreamPlayer2D" parent="." unique_id=235426279]
+stream = ExtResource("4_unlsr")
+volume_db = 1.0
+pitch_scale = 1.3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=142537246]
+polygon = PackedVector2Array(1, -6, 9, 10, -9, 10, -1, -6, 0, -7)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

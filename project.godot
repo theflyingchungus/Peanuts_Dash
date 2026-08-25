@@ -20,7 +20,11 @@ config/icon="res://icon.svg"
 Global="*uid://d2re7spwo5ot5"
 GameState="*uid://dgthganfhamft"
 CollectibleState="*uid://cu0f6hck57n4q"
-ScoreManager="*uid://dybwqdm5fmgf0"
+SignalBus="*uid://df2u4mguks7q6"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
 
 [display]
 
@@ -54,6 +58,7 @@ dash={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Doors, pits, collectibles"
 2d_physics/layer_4="Camera"
+2d_physics/layer_5="Hazards"
 
 [physics]
 
