@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgpthuj0wupef" path="res://scripts/main.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ci7kqyywincmr" path="res://scripts/score_label.gd" id="3_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://nn24mkh84dia" path="res://sounds/weird-route-jingle.mp3" id="3_h2yge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okmhf"]
 bg_color = Color(0.8263198, 0.49986815, 0.4374329, 1)
@@ -75,3 +76,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=198185282]
+stream = ExtResource("3_h2yge")

@@ -1,6 +1,7 @@
 extends Node2D
 @onready var level_label: Label = $HUD/Panel/LevelLabel
 @onready var fade: ColorRect = $HUD/Fade
+@onready var pitfall_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var level: int = 3
 var current_level_root: Node = null
@@ -113,6 +114,7 @@ func _respawn_player(body: Node2D) -> void:
 	body.lock_movement()
 	GameState.set_spawn_point(entry_spawn_point)
 	call_deferred("_load_level", level, false)
+	pitfall_sound.play()
 
 
 # ----------------------

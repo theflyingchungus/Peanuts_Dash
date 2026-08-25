@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://uyiwpwq45hpj" path="res://sprites/Sprite-peanut-butter-0001-Sheet.png" id="1_dvyyk"]
 [ext_resource type="Script" uid="uid://y5anx1l61oan" path="res://scripts/peanut_butter.gd" id="1_f3mpv"]
-[ext_resource type="AudioStream" uid="uid://nn24mkh84dia" path="res://sounds/weird-route-jingle.mp3" id="2_j2wfy"]
 [ext_resource type="Texture2D" uid="uid://bpv06pf4xsu5d" path="res://sprites/Sprite-peanut-butter-collected-Sheet.png" id="2_t780g"]
+[ext_resource type="AudioStream" uid="uid://b4s2fubsfasrp" path="res://sounds/collect-chime.mp3" id="4_f3mpv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdlmu"]
 atlas = ExtResource("2_t780g")
@@ -257,7 +257,7 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_lcj07")
 
 [node name="Collect" type="AudioStreamPlayer2D" parent="." unique_id=127987696]
-stream = ExtResource("2_j2wfy")
+stream = ExtResource("4_f3mpv")
 volume_db = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
