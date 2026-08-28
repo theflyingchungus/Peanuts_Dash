@@ -116,8 +116,11 @@ func _physics_process(delta: float) -> void:
 		# Dash input: allowed on ground (with cooldown) OR once per jump in the air
 		var can_ground_dash = is_on_floor() and dash_cooldown_timer <= 0
 		var can_air_dash = not is_on_floor() and not has_dashed
-		if Input.is_action_just_pressed("dash") and (can_ground_dash or can_air_dash) \
+		if Input.is_action_just_pressed("dash") and can_ground_dash \
 		and Global.has_power_up(Global.PowerUp.DASH):
+			start_dash()
+		if Input.is_action_just_pressed("dash") and can_air_dash \
+		and Global.has_power_up(Global.PowerUp.AIR_DASH):
 			start_dash()
 		
 		# Handle dash-jumping
