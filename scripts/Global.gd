@@ -12,9 +12,9 @@ enum PowerUp {
 signal power_up_granted(id: int)
 
 var power_ups := {
-	PowerUp.JUMP: true,
-	PowerUp.DASH: true,
-	PowerUp.AIR_DASH: true,
+	PowerUp.JUMP: false,
+	PowerUp.DASH: false,
+	PowerUp.AIR_DASH: false,
 	PowerUp.DOUBLE_JUMP: false,
 	PowerUp.DOUBLE_DASH: false,
 }
