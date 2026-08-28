@@ -14,10 +14,10 @@ size = Vector2(20, 40)
 size = Vector2(17.999882, 39.666676)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd4qf"]
-size = Vector2(16.99998, 39.666653)
+size = Vector2(19.666656, 39.666653)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17rvj"]
-size = Vector2(40.00002, 13.666669)
+size = Vector2(40.00002, 17.666656)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8qa5"]
 size = Vector2(745.6667, 20)
@@ -81,7 +81,7 @@ collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit3" unique_id=1316823534]
-position = Vector2(646.8333, 80.500015)
+position = Vector2(645.5, 80.500015)
 shape = SubResource("RectangleShape2D_cd4qf")
 
 [node name="Exit4" type="Area2D" parent="." unique_id=182389648]
@@ -91,11 +91,11 @@ collision_mask = 2
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit4" unique_id=258801856]
-position = Vector2(633.3334, 74.166664)
+position = Vector2(633.3334, 72.16667)
 shape = SubResource("RectangleShape2D_17rvj")
 
 [node name="Pit" type="Area2D" parent="." unique_id=50046008]
-position = Vector2(324, 398.99997)
+position = Vector2(324, 400)
 collision_layer = 4
 collision_mask = 2
 metadata/_edit_group_ = true
@@ -119,5 +119,5 @@ position = Vector2(606.3333, 81.66667)
 script = ExtResource("6_s8qa5")
 
 [connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@40229" to="TileMaps/TileMapPeanuts/@Area2D@40229" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@40230" to="TileMaps/TileMapPeanuts/@Area2D@40230" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@95593" to="TileMaps/TileMapPeanuts/@Area2D@95593" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@95594" to="TileMaps/TileMapPeanuts/@Area2D@95594" method="_on_body_entered"]

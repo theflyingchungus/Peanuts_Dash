@@ -25,10 +25,10 @@ func _on_body_entered(_body: Node2D) -> void:
 	# Set the dict keys as the level of the respective power-up locations
 	var power_up_level_loc: Dictionary[int, int] = {
 		2: Global.PowerUp.JUMP,
-		5: Global.PowerUp.DASH,
-		7: Global.PowerUp.AIR_DASH,
-		8: Global.PowerUp.DOUBLE_JUMP,
-		10: Global.PowerUp.DOUBLE_DASH,
+		10: Global.PowerUp.DASH,
+		15: Global.PowerUp.AIR_DASH,
+		20: Global.PowerUp.DOUBLE_JUMP,
+		25: Global.PowerUp.DOUBLE_DASH,
 	}
 	var search_id: int = int(peanut_butter_id.split("_")[0]) # Identify the level in the id
 	

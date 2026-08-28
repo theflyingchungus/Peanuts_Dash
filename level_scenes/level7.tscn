@@ -173,6 +173,16 @@ collision_mask = 2
 position = Vector2(-7, 320)
 shape = SubResource("RectangleShape2D_17rvj")
 
+[node name="Pit" type="Area2D" parent="." unique_id=305524162]
+position = Vector2(324, 400)
+collision_layer = 4
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=837818536]
+position = Vector2(-3.666626, 0)
+shape = SubResource("RectangleShape2D_o2rxo")
+
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=45668141]
 
 [node name="FromPreviousLevel" type="Marker2D" parent="SpawnPoints" unique_id=1556983734]
@@ -195,19 +205,9 @@ position = Vector2(294.33334, 241.33333)
 [node name="MovingPlatformUp2" parent="MovingPlatforms" unique_id=270859352 instance=ExtResource("7_08yux")]
 position = Vector2(535, 176)
 
-[node name="Pit" type="Area2D" parent="." unique_id=305524162]
-position = Vector2(324, 390.33334)
-collision_layer = 4
-collision_mask = 2
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" unique_id=837818536]
-position = Vector2(-3.666626, 0)
-shape = SubResource("RectangleShape2D_o2rxo")
-
 [node name="CameraBounds" type="Node2D" parent="." unique_id=322741660]
 script = ExtResource("8_mtcck")
 
 [connection signal="body_entered" from="TileMaps/TileMapPeanuts/Peanut" to="TileMaps/TileMapPeanuts/Peanut" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@198322" to="TileMaps/TileMapPeanuts/@Area2D@198322" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@198323" to="TileMaps/TileMapPeanuts/@Area2D@198323" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@100102" to="TileMaps/TileMapPeanuts/@Area2D@100102" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMaps/TileMapPeanuts/@Area2D@100103" to="TileMaps/TileMapPeanuts/@Area2D@100103" method="_on_body_entered"]
