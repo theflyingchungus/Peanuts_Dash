@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $Jump
 @onready var dash_sound: AudioStreamPlayer2D = $Dash
 
@@ -97,9 +97,9 @@ func _physics_process(delta: float) -> void:
 		var direction = Input.get_axis("ui_left", "ui_right")
 		
 		if direction == 1.0:
-			animated_sprite_2d.flip_h = false
+			sprite.flip_h = false
 		elif direction == -1.0:
-			animated_sprite_2d.flip_h = true
+			sprite.flip_h = true
 		
 		# Handle walking
 		if direction:
@@ -143,8 +143,8 @@ func _physics_process(delta: float) -> void:
 
 # Animation function
 func _play_if_not_already(anim_name: String) -> void:
-	if animated_sprite_2d.animation != anim_name:
-		animated_sprite_2d.play(anim_name)
+	if sprite.animation != anim_name:
+		sprite.play(anim_name)
 		
 func lock_movement():
 	movement_locked = true
@@ -211,9 +211,9 @@ func _start_dash_jump():
 
 func spawn_afterimage():
 	var ghost = Sprite2D.new()
-	ghost.texture = $AnimatedSprite2D.sprite_frames.get_frame_texture($AnimatedSprite2D.animation, $AnimatedSprite2D.frame)  # copy your player's current sprite frame
-	ghost.scale = $AnimatedSprite2D.scale * scale  # combine sprite scale + player node scale
-	ghost.flip_h = $AnimatedSprite2D.flip_h
+	ghost.texture = sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame)  # copy your player's current sprite frame
+	ghost.scale = sprite.scale * scale  # combine sprite scale + player node scale
+	ghost.flip_h = sprite.flip_h
 	ghost.modulate = Color(1, 1, 1, 0.5)  # semi-transparent
 	get_parent().add_child(ghost)
 	ghost.global_position = global_position
